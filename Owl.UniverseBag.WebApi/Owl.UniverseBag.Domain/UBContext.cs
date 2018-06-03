@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
+using Owl.UniverseBag.Domain.DbConfig;
 
 namespace Owl.UniverseBag.Domain
 {
@@ -12,6 +13,12 @@ namespace Owl.UniverseBag.Domain
 
         }
 
-        public virtual DbSet<User> Users { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            ModelCreatingConfiguration.Initial(modelBuilder);
+            base.OnModelCreating(modelBuilder);
+        }
+        
+        public DbSet<User> Users { get; set; }
     }
 }

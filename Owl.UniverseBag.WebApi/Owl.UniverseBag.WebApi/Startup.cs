@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Owl.UniverseBag.Domain;
+using Owl.UniverseBag.WebApi.config;
 
 namespace Owl.UniverseBag.WebApi
 {
@@ -27,29 +20,22 @@ namespace Owl.UniverseBag.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDbContext<UBContext>(d => d.UseSqlServer(Configuration["Db:UBConnectionString"]),
-            //    ServiceLifetime.Transient);
-            var a = Configuration.GetConnectionString("UB");
-            services.AddDbContext<UBContext>(d => d.UseSqlServer(Configuration.GetConnectionString("UB")));
+            services.AddDbContext(Configuration)
+                .AddSwaggerService();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, UBContext ubContent)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, UBContext ubContext)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseHsts();
-            }
-
+            app.UseExceptionScheme(env)
+                .UseSwaggerService();
+            
             app.UseHttpsRedirection();
             app.UseMvc();
-
-            DbSeed.Init(ubContent);
+            
+            DbSeed.Init(ubContext);
         }
     }
 }

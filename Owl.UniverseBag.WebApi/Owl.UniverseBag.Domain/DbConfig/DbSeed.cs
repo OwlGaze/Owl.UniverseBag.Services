@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace Owl.UniverseBag.Domain
 {
@@ -8,6 +9,8 @@ namespace Owl.UniverseBag.Domain
     {
         public static void Init(UBContext ubContext)
         {
+            if (ubContext.Users.Any())
+                return;
             ubContext.Users.Add(new User
             {
                 Id = Guid.NewGuid(),

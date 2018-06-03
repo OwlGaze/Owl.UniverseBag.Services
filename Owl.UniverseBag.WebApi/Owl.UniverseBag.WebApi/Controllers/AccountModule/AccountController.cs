@@ -39,5 +39,11 @@ namespace Owl.UniverseBag.WebApi.Controllers.AccountModule
         {
             throw new NotImplementedException();
         }
+
+        [HttpGet("test")]
+        public AcceptedResult Test()
+        {
+            throw new Exception("xxxaaat");
+        }
     }
 }

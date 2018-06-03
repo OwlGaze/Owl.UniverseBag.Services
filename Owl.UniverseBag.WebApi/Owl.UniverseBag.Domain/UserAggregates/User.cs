@@ -15,6 +15,7 @@ namespace Owl.UniverseBag.Domain
         /// 电话号码(登录账号)
         /// </summary>
         [Required]
+        [StringLength(11)]
         public string PhoneNumber { get; set; }
 
         [Required]
@@ -28,5 +29,7 @@ namespace Owl.UniverseBag.Domain
         /// </summary>
         [Required]
         public DateTime RegisterTime { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }
