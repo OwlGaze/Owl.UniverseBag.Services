@@ -48,7 +48,7 @@ namespace Owl.UniverseBag.WebApi.Controllers.AccountModule
         }
 
         [HttpGet("test")]
-        public AcceptedResult Test()
+        public ActionResult Test()
         {
             var logger = NLog.LogManager.GetCurrentClassLogger();
             logger.Debug($"{nameof(AccountController)}/{nameof(Test)}");
