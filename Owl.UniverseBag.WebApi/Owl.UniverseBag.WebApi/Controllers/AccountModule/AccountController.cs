@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Owl.UniverseBag.Application.DTO.AccountModule;
 
 namespace Owl.UniverseBag.WebApi.Controllers.AccountModule
 {
@@ -14,8 +15,14 @@ namespace Owl.UniverseBag.WebApi.Controllers.AccountModule
         /// </summary>
         /// <returns></returns>
         [HttpPost("signup")]
-        public ActionResult SignUp()
+        public ActionResult SignUp(SignUpDto options)
         {
+            if (options == null)
+                return BadRequest();
+            //if(options.PhoneNumber notPhoneNumber)
+            //    ModelState.AddModelError("PhoneNumber","无效的电话号码");
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
             throw new NotImplementedException();
         }
 
