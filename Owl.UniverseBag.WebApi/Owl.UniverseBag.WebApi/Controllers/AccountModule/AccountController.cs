@@ -50,6 +50,8 @@ namespace Owl.UniverseBag.WebApi.Controllers.AccountModule
         [HttpGet("test")]
         public AcceptedResult Test()
         {
+            var logger = NLog.LogManager.GetCurrentClassLogger();
+            logger.Debug($"{nameof(AccountController)}/{nameof(Test)}");
             throw new Exception("xxxaaat");
         }
     }

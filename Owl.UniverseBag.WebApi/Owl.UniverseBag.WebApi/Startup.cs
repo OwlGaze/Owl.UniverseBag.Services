@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -34,6 +35,7 @@ namespace Owl.UniverseBag.WebApi
             app.UseExceptionScheme(env)
                 .UseSwaggerService();
             loggerFactory.AddNLog();
+            
 
             app.UseHttpsRedirection();
             app.UseMvc();
