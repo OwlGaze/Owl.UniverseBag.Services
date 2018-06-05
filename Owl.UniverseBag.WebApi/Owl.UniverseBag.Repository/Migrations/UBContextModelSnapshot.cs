@@ -3,17 +3,15 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Owl.UniverseBag.Domain;
 
-namespace Owl.UniverseBag.Domain.Migrations
+namespace Owl.UniverseBag.Repository.Migrations
 {
     [DbContext(typeof(UBContext))]
-    [Migration("20180603060844_initcreate")]
-    partial class initcreate
+    partial class UBContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,11 +24,14 @@ namespace Owl.UniverseBag.Domain.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<bool>("IsDeleted");
+
                     b.Property<string>("Password")
                         .IsRequired();
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(11);
 
                     b.Property<DateTime>("RegisterTime");
 

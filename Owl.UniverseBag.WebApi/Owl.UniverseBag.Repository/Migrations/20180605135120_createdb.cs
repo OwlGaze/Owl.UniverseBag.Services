@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Owl.UniverseBag.Domain.Migrations
+namespace Owl.UniverseBag.Repository.Migrations
 {
-    public partial class initcreate : Migration
+    public partial class createdb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,10 +12,11 @@ namespace Owl.UniverseBag.Domain.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    PhoneNumber = table.Column<string>(nullable: false),
+                    PhoneNumber = table.Column<string>(maxLength: 11, nullable: false),
                     Password = table.Column<string>(nullable: false),
                     Salt = table.Column<string>(nullable: false),
-                    RegisterTime = table.Column<DateTime>(nullable: false)
+                    RegisterTime = table.Column<DateTime>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {

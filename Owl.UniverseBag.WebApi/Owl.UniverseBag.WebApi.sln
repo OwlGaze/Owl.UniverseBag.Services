@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Owl.UniverseBag.WebApi", "Owl.UniverseBag.WebApi\Owl.UniverseBag.WebApi.csproj", "{F1A894F7-7DDA-4602-99B9-C763F5DF9364}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Owl.UniverseBag.WebApi", "Owl.UniverseBag.WebApi\Owl.UniverseBag.WebApi.csproj", "{F1A894F7-7DDA-4602-99B9-C763F5DF9364}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-DistributedServices", "2-DistributedServices", "{BCEDA5C6-603D-4074-A5B0-89F64EC95364}"
 EndProject
@@ -13,15 +13,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4-Domain", "4-Domain", "{80
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5-Infrastructure", "5-Infrastructure", "{C1CB6CB1-4A4B-4A95-8419-4D7576644672}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Owl.UniverseBag.Application", "Owl.UniverseBag.Application\Owl.UniverseBag.Application.csproj", "{CEE099BB-F422-4477-85BF-BAAED553B980}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Owl.UniverseBag.Application", "Owl.UniverseBag.Application\Owl.UniverseBag.Application.csproj", "{CEE099BB-F422-4477-85BF-BAAED553B980}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Owl.UniverseBag.Application.DTO", "Owl.UniverseBag.WebApi.DTO\Owl.UniverseBag.Application.DTO.csproj", "{F1B89872-A86A-4429-8F37-A5A15EDC39AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Owl.UniverseBag.Application.DTO", "Owl.UniverseBag.WebApi.DTO\Owl.UniverseBag.Application.DTO.csproj", "{F1B89872-A86A-4429-8F37-A5A15EDC39AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Owl.UniverseBag.Domain", "Owl.UniverseBag.Domain\Owl.UniverseBag.Domain.csproj", "{257709AA-846A-4232-9AB4-94F952ECAFF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Owl.UniverseBag.Domain", "Owl.UniverseBag.Domain\Owl.UniverseBag.Domain.csproj", "{257709AA-846A-4232-9AB4-94F952ECAFF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Owl.UniverseBag.Core", "Owl.UniverseBag.Core\Owl.UniverseBag.Core.csproj", "{07E33876-4F56-41B7-8F3D-D5C190BA5448}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Owl.UniverseBag.Core", "Owl.UniverseBag.Core\Owl.UniverseBag.Core.csproj", "{07E33876-4F56-41B7-8F3D-D5C190BA5448}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Owl.UniverseBag.Utility", "Owl.UniverseBag.Utility\Owl.UniverseBag.Utility.csproj", "{A7B00937-2903-4E9D-8ADC-77ADBEC020C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Owl.UniverseBag.Utility", "Owl.UniverseBag.Utility\Owl.UniverseBag.Utility.csproj", "{A7B00937-2903-4E9D-8ADC-77ADBEC020C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Owl.UniverseBag.Repository", "Owl.UniverseBag.Repository\Owl.UniverseBag.Repository.csproj", "{F088B3C7-CE97-4058-A97E-0F2591F67253}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{A7B00937-2903-4E9D-8ADC-77ADBEC020C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7B00937-2903-4E9D-8ADC-77ADBEC020C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7B00937-2903-4E9D-8ADC-77ADBEC020C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F088B3C7-CE97-4058-A97E-0F2591F67253}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F088B3C7-CE97-4058-A97E-0F2591F67253}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F088B3C7-CE97-4058-A97E-0F2591F67253}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F088B3C7-CE97-4058-A97E-0F2591F67253}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +70,7 @@ Global
 		{257709AA-846A-4232-9AB4-94F952ECAFF7} = {80C89760-EF0C-4FE2-9E83-B6765A60E88F}
 		{07E33876-4F56-41B7-8F3D-D5C190BA5448} = {C1CB6CB1-4A4B-4A95-8419-4D7576644672}
 		{A7B00937-2903-4E9D-8ADC-77ADBEC020C6} = {C1CB6CB1-4A4B-4A95-8419-4D7576644672}
+		{F088B3C7-CE97-4058-A97E-0F2591F67253} = {C1CB6CB1-4A4B-4A95-8419-4D7576644672}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DCD09B36-62A3-48C2-82E0-9B1BEBE418F4}

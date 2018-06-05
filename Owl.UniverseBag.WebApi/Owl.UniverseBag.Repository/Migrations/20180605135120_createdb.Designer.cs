@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Owl.UniverseBag.Domain;
 
-namespace Owl.UniverseBag.Domain.Migrations
+namespace Owl.UniverseBag.Repository.Migrations
 {
     [DbContext(typeof(UBContext))]
-    [Migration("20180603061008_user.isdeleted")]
-    partial class userisdeleted
+    [Migration("20180605135120_createdb")]
+    partial class createdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,7 +32,8 @@ namespace Owl.UniverseBag.Domain.Migrations
                         .IsRequired();
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(11);
 
                     b.Property<DateTime>("RegisterTime");
 

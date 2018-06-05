@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
+using Owl.UniverseBag.Application.MapperConfiguration;
 using Owl.UniverseBag.Domain;
 using Owl.UniverseBag.WebApi.config;
 
@@ -25,6 +26,7 @@ namespace Owl.UniverseBag.WebApi
         {
             services.AddDbContext(Configuration)
                 .AddSwaggerService();
+            
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -35,7 +37,7 @@ namespace Owl.UniverseBag.WebApi
             app.UseExceptionScheme(env)
                 .UseSwaggerService();
             loggerFactory.AddNLog();
-            
+            AutoMapperHandler.UseAutoMapper();
 
             app.UseHttpsRedirection();
             app.UseMvc();

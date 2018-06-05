@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Owl.UniverseBag.Repository\Owl.UniverseBag.Repository.csproj" />
     <ProjectReference Include="..\Owl.UniverseBag.WebApi.DTO\Owl.UniverseBag.Application.DTO.csproj" />
   </ItemGroup>
 

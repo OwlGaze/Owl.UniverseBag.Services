@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Owl.UniverseBag.Application\Owl.UniverseBag.Application.csproj" />
-    <ProjectReference Include="..\Owl.UniverseBag.Domain\Owl.UniverseBag.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
