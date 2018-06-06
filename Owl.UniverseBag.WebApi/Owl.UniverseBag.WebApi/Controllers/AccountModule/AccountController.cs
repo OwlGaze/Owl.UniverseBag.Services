@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Owl.UniverseBag.Application.DTO.AccountModule;
+using Owl.UniverseBag.Application.MapperConfiguration;
 using Owl.UniverseBag.Application.Services.AccountModule;
+using Owl.UniverseBag.Domain;
 
 namespace Owl.UniverseBag.WebApi.Controllers.AccountModule
 {
@@ -13,10 +16,12 @@ namespace Owl.UniverseBag.WebApi.Controllers.AccountModule
     public class AccountController : Controller
     {
         private readonly IAccountService _accountService;
+        private readonly IMapper _mapper;
 
-        public AccountController(IAccountService accountService)
+        public AccountController(IAccountService accountService, IMapper mapper)
         {
             this._accountService = accountService;
+            this._mapper = mapper;
         }
 
         /// <summary>
@@ -63,7 +68,16 @@ namespace Owl.UniverseBag.WebApi.Controllers.AccountModule
             //logger.Debug($"{nameof(AccountController)}/{nameof(Test)}");
             //throw new Exception("xxxaaat");
             //_accountService.Test();
+
+            var userDto = new UserDto
+            {
+                Password = "pwd",
+                PhoneNumber = "133",
+                Salt = "aaa"
+            };
             
+            var user =  _mapper.Map<User>(userDto);
+
             return NoContent();
         }
     }

@@ -8,8 +8,10 @@ namespace Owl.UniverseBag.Application.MapperConfiguration
     {
         public AccountProfile()
         {
-            //CreateMap<User, UserDto>();
-            
+            CreateMap<User, UserDto>();
+            CreateMap<UserDto,User>();
+
+
         }
     }
 }

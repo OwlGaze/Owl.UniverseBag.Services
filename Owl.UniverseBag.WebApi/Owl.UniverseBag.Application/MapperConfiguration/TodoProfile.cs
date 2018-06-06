@@ -5,7 +5,7 @@ using AutoMapper;
 
 namespace Owl.UniverseBag.Application.MapperConfiguration
 {
-    public class TodoProfile : Profile, IProfile
+    public class TodoProfile : Profile
     {
     }
 }

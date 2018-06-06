@@ -41,7 +41,7 @@ namespace Owl.UniverseBag.WebApi
             app.UseExceptionScheme(env)
                 .UseSwaggerService();
             loggerFactory.AddNLog();
-            AutoMapperHandler.UseAutoMapper();
+            //AutoMapperHandler.UseAutoMapper();
 
             app.UseHttpsRedirection();
             app.UseMvc();
