@@ -1,4 +1,5 @@
 ﻿using System;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
 using Owl.UniverseBag.Application.MapperConfiguration;
+using Owl.UniverseBag.Application.Services.AccountModule;
 using Owl.UniverseBag.Domain;
 using Owl.UniverseBag.WebApi.config;
 
@@ -26,7 +28,9 @@ namespace Owl.UniverseBag.WebApi
         {
             services.AddDbContext(Configuration)
                 .AddSwaggerService();
-            
+            services.AddAutoMapper();
+
+            services.AddScoped<IAccountService, AccountService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

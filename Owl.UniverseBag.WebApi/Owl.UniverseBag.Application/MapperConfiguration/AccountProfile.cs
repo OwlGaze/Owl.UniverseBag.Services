@@ -4,11 +4,12 @@ using Owl.UniverseBag.Domain;
 
 namespace Owl.UniverseBag.Application.MapperConfiguration
 {
-    public class AccountProfile : Profile,IProfile
+    public class AccountProfile : Profile
     {
-        public AccountProfile(IMapperConfigurationExpression config)
+        public AccountProfile()
         {
-            config.CreateMap<User, UserDto>();
+            //CreateMap<User, UserDto>();
+            
         }
     }
 }

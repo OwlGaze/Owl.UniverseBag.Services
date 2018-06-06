@@ -4,12 +4,21 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Owl.UniverseBag.Application.DTO.AccountModule;
+using Owl.UniverseBag.Application.Services.AccountModule;
 
 namespace Owl.UniverseBag.WebApi.Controllers.AccountModule
 {
     [Route("api/[controller]")]
+    [Produces("application/json")]
     public class AccountController : Controller
     {
+        private readonly IAccountService _accountService;
+
+        public AccountController(IAccountService accountService)
+        {
+            this._accountService = accountService;
+        }
+
         /// <summary>
         /// 注册
         /// </summary>
@@ -50,9 +59,12 @@ namespace Owl.UniverseBag.WebApi.Controllers.AccountModule
         [HttpGet("test")]
         public ActionResult Test()
         {
-            var logger = NLog.LogManager.GetCurrentClassLogger();
-            logger.Debug($"{nameof(AccountController)}/{nameof(Test)}");
-            throw new Exception("xxxaaat");
+            //var logger = NLog.LogManager.GetCurrentClassLogger();
+            //logger.Debug($"{nameof(AccountController)}/{nameof(Test)}");
+            //throw new Exception("xxxaaat");
+            //_accountService.Test();
+            
+            return NoContent();
         }
     }
 }
