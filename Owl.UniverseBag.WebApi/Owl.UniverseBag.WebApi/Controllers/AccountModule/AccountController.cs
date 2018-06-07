@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Owl.UniverseBag.Application.DTO;
 using Owl.UniverseBag.Application.DTO.AccountModule;
-using Owl.UniverseBag.Application.MapperConfiguration;
 using Owl.UniverseBag.Application.Services.AccountModule;
-using Owl.UniverseBag.Domain;
 
 namespace Owl.UniverseBag.WebApi.Controllers.AccountModule
 {
-    [Route("api/[controller]")]
-    [Produces("application/json")]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         private readonly IAccountService _accountService;
         private readonly IMapper _mapper;
@@ -29,14 +23,18 @@ namespace Owl.UniverseBag.WebApi.Controllers.AccountModule
         /// </summary>
         /// <returns></returns>
         [HttpPost("signup")]
-        public ActionResult SignUp(SignUpDto options)
+        public ActionResult SignUp([FromBody]SignUpDto options)
         {
             if (options == null)
                 return BadRequest();
-            //if(options.PhoneNumber notPhoneNumber)
-            //    ModelState.AddModelError("PhoneNumber","无效的电话号码");
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            ////if(options.PhoneNumber notPhoneNumber)
+            ////    ModelState.AddModelError("PhoneNumber","无效的电话号码");
+            //var validator = new SignUpDtoValidate();
+            //var validResult = validator.Validate(options);
+            var validResult = options.Validate();
+            if (!validResult.IsValid)
+                return BadRequest(validResult.Errors);
+
             throw new NotImplementedException();
         }
 
@@ -67,16 +65,7 @@ namespace Owl.UniverseBag.WebApi.Controllers.AccountModule
             //var logger = NLog.LogManager.GetCurrentClassLogger();
             //logger.Debug($"{nameof(AccountController)}/{nameof(Test)}");
             //throw new Exception("xxxaaat");
-            //_accountService.Test();
-
-            var userDto = new UserDto
-            {
-                Password = "pwd",
-                PhoneNumber = "133",
-                Salt = "aaa"
-            };
-            
-            var user =  _mapper.Map<User>(userDto);
+            _accountService.Test();
 
             return NoContent();
         }

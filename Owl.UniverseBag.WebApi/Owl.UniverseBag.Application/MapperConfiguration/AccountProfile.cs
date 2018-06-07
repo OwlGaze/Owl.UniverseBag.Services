@@ -10,8 +10,6 @@ namespace Owl.UniverseBag.Application.MapperConfiguration
         {
             CreateMap<User, UserDto>();
             CreateMap<UserDto,User>();
-
-
         }
     }
 }

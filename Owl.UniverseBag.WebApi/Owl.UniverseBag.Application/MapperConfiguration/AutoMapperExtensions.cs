@@ -7,7 +7,7 @@ namespace Owl.UniverseBag.Application.MapperConfiguration
 {
     public static class AutoMapperExtensions
     {
-        public static TTarget Map<TTarget,TSource>(this TSource source, IMapper mapper)
+        public static TTarget Map<TTarget>(this object source, IMapper mapper)
         {
            return mapper.Map<TTarget>(source);
         }

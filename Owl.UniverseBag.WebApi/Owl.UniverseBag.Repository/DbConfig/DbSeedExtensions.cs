@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Internal;
 
 namespace Owl.UniverseBag.Domain
 {
-    public static class DbSeed
+    public static class DbSeedExtensions
     {
-        public static void Init(UBContext ubContext)
+        public static void InitSeed(this UBContext ubContext)
         {
             if (ubContext.Users.Any())
                 return;
