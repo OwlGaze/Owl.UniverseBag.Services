@@ -29,9 +29,7 @@ namespace Owl.UniverseBag.WebApi.Controllers.AccountModule
                 return BadRequest();
             ////if(options.PhoneNumber notPhoneNumber)
             ////    ModelState.AddModelError("PhoneNumber","无效的电话号码");
-            //var validator = new SignUpDtoValidate();
-            //var validResult = validator.Validate(options);
-            var validResult = options.Validate();
+            var validResult = options.Validate<SignUpDto, SignUpDtoValidate>();
             if (!validResult.IsValid)
                 return BadRequest(validResult.Errors);
 
