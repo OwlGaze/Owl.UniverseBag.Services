@@ -27,13 +27,11 @@ namespace Owl.UniverseBag.WebApi.Controllers.AccountModule
         {
             if (options == null)
                 return BadRequest();
-            ////if(options.PhoneNumber notPhoneNumber)
-            ////    ModelState.AddModelError("PhoneNumber","无效的电话号码");
             var validResult = options.Validate<SignUpDto, SignUpDtoValidate>();
             if (!validResult.IsValid)
                 return BadRequest(validResult.Errors);
 
-            throw new NotImplementedException();
+            return Ok(_accountService.SignUp(options));
         }
 
         /// <summary>
@@ -57,15 +55,5 @@ namespace Owl.UniverseBag.WebApi.Controllers.AccountModule
             throw new NotImplementedException();
         }
 
-        [HttpGet("test")]
-        public ActionResult Test()
-        {
-            //var logger = NLog.LogManager.GetCurrentClassLogger();
-            //logger.Debug($"{nameof(AccountController)}/{nameof(Test)}");
-            //throw new Exception("xxxaaat");
-            _accountService.Test();
-
-            return NoContent();
-        }
     }
 }

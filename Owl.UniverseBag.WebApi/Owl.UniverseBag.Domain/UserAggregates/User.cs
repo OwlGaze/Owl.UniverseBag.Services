@@ -20,6 +20,6 @@ namespace Owl.UniverseBag.Domain
         /// </summary>
         public DateTime RegisterTime { get; set; }
 
-        public bool IsDeleted { get; set; }
+        public bool IsDeleted { get; set; } = false;
     }
 }

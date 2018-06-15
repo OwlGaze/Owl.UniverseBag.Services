@@ -4,8 +4,9 @@ using System.Text;
 
 namespace Owl.UniverseBag.Core.Security
 {
-    public interface ITokenHandler
+    public interface IPasswordHandler
     {
-        JWTModel Generate(Guid userId, string phoneNumber);
+        string GenerateSalt();
+        string Encryption(string password, string salt);
     }
 }

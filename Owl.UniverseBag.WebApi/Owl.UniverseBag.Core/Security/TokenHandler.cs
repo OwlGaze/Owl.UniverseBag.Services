@@ -9,10 +9,10 @@ namespace Owl.UniverseBag.Core.Security
 {
     public class TokenHandler : ITokenHandler
     {
-        public JWTModel Generate()
+        public JWTModel Generate(Guid userId, string phoneNumber)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(Consts.Secret);
+            var key = Encoding.ASCII.GetBytes(TokenSecret.Value);
             var authTime = DateTime.UtcNow;
             var expiresAt = authTime.AddDays(7);
             var tokenDescriptor = new SecurityTokenDescriptor
@@ -20,17 +20,26 @@ namespace Owl.UniverseBag.Core.Security
                 Subject = new ClaimsIdentity(new Claim[]
                 {
                     new Claim(JwtClaimTypes.Audience,"api"),
-                    new Claim(JwtClaimTypes.Issuer,"http://localhost:5200"),
-                    new Claim(JwtClaimTypes.Id, user.Id.ToString()),
-                    new Claim(JwtClaimTypes.Name, user.Name),
-                    new Claim(JwtClaimTypes.Email, user.Email),
-                    new Claim(JwtClaimTypes.PhoneNumber, user.PhoneNumber)
+                    new Claim(JwtClaimTypes.Issuer,"http://owl.ub.com"),
+                    new Claim(JwtClaimTypes.Id, userId.ToString()),
+                    new Claim(JwtClaimTypes.PhoneNumber, phoneNumber)
                 }),
                 Expires = expiresAt,
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             var tokenString = tokenHandler.WriteToken(token);
+            return new JWTModel
+            {
+                Access_Token = tokenString,
+                Profile = new Profile
+                {
+                    Id = userId,
+                    PhoneNumber = phoneNumber,
+                    Auth_Time = new DateTimeOffset(authTime).ToUnixTimeSeconds(),
+                    Exprires_At = new DateTimeOffset(expiresAt).ToUnixTimeSeconds()
+                }
+            };
         }
     }
 }

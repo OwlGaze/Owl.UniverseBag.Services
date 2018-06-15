@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Owl.UniverseBag.Core\Owl.UniverseBag.Core.csproj" />
     <ProjectReference Include="..\Owl.UniverseBag.Repository\Owl.UniverseBag.Repository.csproj" />
     <ProjectReference Include="..\Owl.UniverseBag.WebApi.DTO\Owl.UniverseBag.Application.DTO.csproj" />
   </ItemGroup>

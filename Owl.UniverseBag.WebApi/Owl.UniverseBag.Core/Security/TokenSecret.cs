@@ -4,8 +4,8 @@ using System.Text;
 
 namespace Owl.UniverseBag.Core.Security
 {
-    public interface ITokenHandler
+    public  static class TokenSecret
     {
-        JWTModel Generate(Guid userId, string phoneNumber);
+        public static readonly string Value = "Owl.UniverseBag.JwtToken.Secret";
     }
 }
